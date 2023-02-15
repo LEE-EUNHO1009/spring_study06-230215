@@ -7,6 +7,6 @@
 <title>게시판 홈페이지</title>
 </head>
 <body>
-	<h1><a href="">자유게시판 이동하기</a></h1>
+	<h1><a href="list">자유게시판 이동하기</a></h1>
 </body>
 </html>
