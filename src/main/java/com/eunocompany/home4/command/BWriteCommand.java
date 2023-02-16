@@ -11,17 +11,18 @@ import com.eunocompany.home4.dao.BDao;
 public class BWriteCommand implements BCommand {
 
 	@Override
-	public void execute(Model model) {
+	public void excute(Model model) {
 		// TODO Auto-generated method stub
-		Map<String, Object> map = model.asMap();
-		//model 객체 안에 있는 request를 map으로 매핑
+		
+		Map<String, Object> map =  model.asMap();
+		//model 객체 안에 있는 request를 map 매핑
 		HttpServletRequest request = (HttpServletRequest) map.get("request");
 		
 		String bname = request.getParameter("bname");
 		String btitle = request.getParameter("btitle");
 		String bcontent = request.getParameter("bcontent");
 		
-		BDao dao=new BDao();
+		BDao dao = new BDao();
 		dao.write(bname, btitle, bcontent);
 		
 	}

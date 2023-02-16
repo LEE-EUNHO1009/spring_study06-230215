@@ -8,38 +8,66 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.eunocompany.home4.command.BCommand;
+import com.eunocompany.home4.command.BContentCommand;
 import com.eunocompany.home4.command.BListCommand;
 import com.eunocompany.home4.command.BWriteCommand;
 
 @Controller
 public class BController {
-
-	BCommand command= null;
 	
-	@RequestMapping(value ="/")
+	BCommand command = null;
+	
+	@RequestMapping(value = "/")
 	public String index() {
+		
 		return "index";
 	}
-	@RequestMapping("/list")
+	
+	@RequestMapping(value = "/list")
 	public String list(Model model) {
 		
 		command = new BListCommand();
-		command.execute(model);
+		command.excute(model);
 		
 		return "list";
 	}
-	@RequestMapping(value="writeForm")
+	
+	@RequestMapping(value = "/writeForm")
 	public String writeForm() {
+		
 		return "write_form";
 	}
-	@RequestMapping(value="write", method=RequestMethod.POST)
+	
+	@RequestMapping(value = "/write", method = RequestMethod.POST)
 	public String write(HttpServletRequest request, Model model) {
 		
-		model.addAttribute("request", request);  //리퀘스트 객체를 모델에 실어서 보내준다.
+		model.addAttribute("request", request);
 		
 		command = new BWriteCommand();
-		command.execute(model);
+		command.excute(model);
 		
 		return "redirect:list";
 	}
+	
+	@RequestMapping(value = "/contentView")
+	public String contentView(HttpServletRequest request, Model model) {
+		
+		model.addAttribute("request", request);
+		
+		command = new BContentCommand();
+		command.excute(model);
+		
+		return "content_view";
+	}
+	@RequestMapping(value = "/modifyView")
+	public String modifyView(HttpServletRequest request, Model model) {
+		
+		model.addAttribute("request", request);
+		
+		command = new BContentCommand();
+		command.excute(model);
+		
+		return "content_modify";
+	}
+
 }

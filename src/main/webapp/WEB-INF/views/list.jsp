@@ -8,7 +8,7 @@
 <title>게시판 리스트</title>
 </head>
 <body>
-	<h2>자유 게시판</h2>
+	<h2>자유게시판</h2>
 	<hr>
 	<table border="1" cellspacing="0" cellpadding="0" width="1000">
 		<tr>
@@ -22,18 +22,18 @@
 		<tr>
 			<td>${bdto.bid }</td>
 			<td>${bdto.bname }</td>
-			<td>${bdto.btitle }</td>
+			<td><a href="contentView?bid=${bdto.bid }">${bdto.btitle }</a></td>
 			<td>${bdto.bdate }</td>
 			<td>${bdto.bhit }</td>
 		</tr>
 		</c:forEach>
-	</table>
-	
-	<tr>
-		<td>
-			<input type="button" value="글쓰기" onclick="javascript:window.location='writeForm'">
-		</td>
-	</tr>
 		
+		<tr>
+			<td colspan="5" align="right">
+				<input type="button" value="글쓰기" onclick="javascript:window.location='writeForm'">
+			</td>		
+		</tr>
+		
+	</table>
 </body>
 </html>

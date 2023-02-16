@@ -10,14 +10,13 @@ import com.eunocompany.home4.dto.BDto;
 public class BListCommand implements BCommand {
 
 	@Override
-	public void execute(Model model) {
+	public void excute(Model model) {
 		// TODO Auto-generated method stub
 		
-		BDao dao= new BDao();
-		ArrayList<BDto> dtos= dao.list();
+		BDao dao = new BDao();
+		ArrayList<BDto> dtos = dao.list();
 		
 		model.addAttribute("list", dtos);
-
 	}
 
 }
