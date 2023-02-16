@@ -12,6 +12,7 @@ import com.eunocompany.home4.command.BContentCommand;
 import com.eunocompany.home4.command.BDeleteCommand;
 import com.eunocompany.home4.command.BListCommand;
 import com.eunocompany.home4.command.BModifyCommand;
+import com.eunocompany.home4.command.BReplyCommand;
 import com.eunocompany.home4.command.BWriteCommand;
 
 @Controller
@@ -86,6 +87,26 @@ public class BController {
 		
 		command = new BDeleteCommand();
 		command.excute(model);
+		return "redirect:list";
+	}
+	@RequestMapping(value = "/replyWrite")
+	public String replyWrite(HttpServletRequest request, Model model) {
+		
+		model.addAttribute("request", request);
+		
+		command = new BContentCommand();
+		command.excute(model);
+		
+		return "reply_write";
+	}
+	@RequestMapping(value = "/reply")
+	public String reply(HttpServletRequest request, Model model) {
+		
+		model.addAttribute("request", request);
+		
+		command = new BReplyCommand();
+		command.excute(model);
+		
 		return "redirect:list";
 	}
 }
