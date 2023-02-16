@@ -62,6 +62,7 @@ public class BController {
 		
 		return "content_view";
 	}
+	
 	@RequestMapping(value = "/modifyView")
 	public String modifyView(HttpServletRequest request, Model model) {
 		
@@ -72,23 +73,29 @@ public class BController {
 		
 		return "content_modify";
 	}
-
+	
 	@RequestMapping(value = "/modify", method = RequestMethod.POST)
 	public String modify(HttpServletRequest request, Model model) {
+		
 		model.addAttribute("request", request);
 		
 		command = new BModifyCommand();
 		command.excute(model);
+		
 		return "redirect:list";
 	}
+	
 	@RequestMapping(value = "/delete")
 	public String delete(HttpServletRequest request, Model model) {
+		
 		model.addAttribute("request", request);
 		
 		command = new BDeleteCommand();
 		command.excute(model);
+		
 		return "redirect:list";
 	}
+	
 	@RequestMapping(value = "/replyWrite")
 	public String replyWrite(HttpServletRequest request, Model model) {
 		
@@ -99,6 +106,7 @@ public class BController {
 		
 		return "reply_write";
 	}
+	
 	@RequestMapping(value = "/reply")
 	public String reply(HttpServletRequest request, Model model) {
 		
@@ -109,4 +117,5 @@ public class BController {
 		
 		return "redirect:list";
 	}
+
 }
