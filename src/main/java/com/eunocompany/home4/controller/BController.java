@@ -24,4 +24,8 @@ public class BController {
 		
 		return "list";
 	}
+	@RequestMapping(value="writeForm")
+	public String writeForm() {
+		return "write_form";
+	}
 }

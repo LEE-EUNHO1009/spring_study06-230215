@@ -29,6 +29,11 @@
 		</c:forEach>
 	</table>
 	
+	<tr>
+		<td>
+			<input type="button" value="글쓰기" onclick="javascript:window.location='writeForm'">
+		</td>
+	</tr>
 		
 </body>
 </html>
